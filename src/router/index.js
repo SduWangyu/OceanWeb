@@ -4,10 +4,16 @@ import AuthLayout from  '../layout/auth-layout'
 
 const routes = [
   {
+    path:'/login',
+    name:'login',
+    component: () => import('../views/auth/login/login.vue')
+  },
+  {
     path: '/',
     name: 'Home',
-    component: Home
+    component: () => import('../views/auth/login/login.vue')
   },
+
   {
     path: '/about',
     name: 'About',
