@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory} from 'vue-router'
 import Home from '../views/Home.vue'
 import AuthLayout from  '../layout/auth-layout'
-
+import AdminLayout from '../layout/admin-layout'
 const routes = [
   {
     path:'/login',
@@ -32,7 +32,18 @@ const routes = [
         component: () => import('../views/auth/login/login.vue'),
       },
     ],
-  },]
+  },
+  {
+    path: '/admin',
+    component: AdminLayout,
+    children: [
+      {
+        name: 'index',
+        path: 'index',
+        component: () => import('../views/admin/overview/overview.vue'),
+      },
+    ],
+  }]
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
