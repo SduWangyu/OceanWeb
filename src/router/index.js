@@ -34,6 +34,7 @@ const routes = [
     ],
   },
   {
+    name:'admin',
     path: '/admin',
     component: AdminLayout,
     children: [

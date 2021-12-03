@@ -23,18 +23,30 @@
 <script>
 // @ is an alias to /src
 import {reactive, ref, toRefs } from 'vue'
-
+import md5 from 'js-md5';
+import axios from 'axios'
+import {useStore} from "vuex"
+import {useRouter} from "vue-router"
 export default {
   name: 'login',
-  components:{
 
+  components:{
+  },
+  unmounted() {
+    window.addEventListener('beforeunload', () => {
+      sessionStorage.setItem('store', JSON.stringify(this.$store.state))
+    })
   },
   setup() {
+    const store = useStore()
+    const router = useRouter()
     const loginForm = ref(null)
+    const userdata = {}
+    const logStatus = ref()
     const state = reactive({
       ruleForm: {
-        username: '',
-        password: ''
+        username: '15192684903',
+        password: 'oceanstellar123'
       },
       checked: true,
       rules: {
@@ -46,22 +58,39 @@ export default {
         ]
       }
     })
-    const submitForm = async () => {
-      loginForm.value.validate((valid) => {
+    function submitForm(){
+      loginForm.value.validate((valid)=>{
         if (valid) {
-          axios.post('/adminUser/login', {
-            userName: state.ruleForm.username || '',
-            passwordMd5: md5(state.ruleForm.password)
-          }).then(res => {
-            localSet('token', res)
-            window.location.href = '/'
-          })
+          console.log(state.ruleForm)
+          axios({
+            url: 'https://openapi.mp.usr.cn/usrCloud/user/login',
+            method: 'post',
+            data: JSON.stringify({'account': state.ruleForm.username, 'password': md5(state.ruleForm.password)}),
+            headers:
+                {
+                  'Content-Type': 'application/json'
+                }
+          }).then((returnData) => {
+            console.log(returnData.data)
+            logStatus.value = returnData.data.status
+            switch (logStatus.value){
+              case 0:
+                userdata.account = returnData.data.data.account
+                userdata.token = returnData.data.data.token
+                userdata.uid = returnData.data.data.uid
+                userdata.tel = returnData.data.data.tel
+                store.commit('loginSet',userdata);
+                router.push({ name: 'admin' });
+                break
+            }
+          });
         } else {
           console.log('error submit!!')
           return false;
         }
       })
     }
+
     const resetForm = () => {
       loginForm.value.resetFields();
     }
