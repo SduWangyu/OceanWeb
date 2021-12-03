@@ -16,8 +16,10 @@
           <el-checkbox v-model="checked"  @change="!checked">下次自动登录</el-checkbox>
         </el-form-item>
       </el-form>
+
     </div>
   </div>
+  <Dialog :is-show="logError" msg="12346"></Dialog>
 </template>
 
 <script>
@@ -27,10 +29,11 @@ import md5 from 'js-md5';
 import axios from 'axios'
 import {useStore} from "vuex"
 import {useRouter} from "vue-router"
+import Dialog from "../component/Dialog";
 export default {
   name: 'login',
-
   components:{
+    Dialog,
   },
   unmounted() {
     window.addEventListener('beforeunload', () => {
@@ -38,10 +41,12 @@ export default {
     })
   },
   setup() {
+    const msg = ref("")
     const store = useStore()
     const router = useRouter()
     const loginForm = ref(null)
     const userdata = {}
+    const logError = ref(false)
     const logStatus = ref()
     const state = reactive({
       ruleForm: {
@@ -82,6 +87,12 @@ export default {
                 store.commit('loginSet',userdata);
                 router.push({ name: 'admin' });
                 break
+              case 1000:
+                msg.value = "密码错误"
+                logError.value = true
+                break
+              default:
+                alert("sss")
             }
           });
         } else {
@@ -98,7 +109,9 @@ export default {
       ...toRefs(state),
       loginForm,
       submitForm,
-      resetForm
+      resetForm,
+      logError,
+      msg
     }
   }
 }

@@ -1,5 +1,15 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <Dialog />
   </div>
 </template>
+
+<script>
+import Dialog from "./auth/component/Dialog.vue";
+export default {
+  components:{
+    Dialog,
+  },
+}
+
+</script>

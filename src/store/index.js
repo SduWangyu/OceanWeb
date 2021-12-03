@@ -3,6 +3,7 @@ import { createStore } from 'vuex'
 export default createStore({
   strict: true,
   state: {
+    isShow:false,
     isSidebarMinimized: false,
     userName:'test',
     account:'test',
