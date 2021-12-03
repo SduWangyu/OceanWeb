@@ -41,7 +41,7 @@ const routes = [
       {
         name: 'index',
         path: 'index',
-        component: () => import('../views/admin/overview/overview.vue'),
+        component: () => import('../views/admin/overview/Overview.vue'),
       },
     ],
   }]

@@ -12,9 +12,9 @@
 |
 |------layout "三大界面"
 |      |
-|      |------auth-layout "认证界面布局。包括注册，登录and密码找回"
-|      |------admin-layout "用户主界面布局"
-|      |------404   "404 NOT FOUND"
+|      |------auth-layout   "认证界面布局。包括注册，登录and密码找回"
+|      |------admin-layout  "用户主界面布局"
+|      |------404           "404 NOT FOUND"
 |
 |------views
 |      |------auth
@@ -24,7 +24,7 @@
 |             |------devManagement    "设备管理"
 |             |------dataCenter       "数据中心"
 |
-|------store "路由文件夹"
+|------store  "全局变量"
 |
 |------router "路由文件夹"
 |            

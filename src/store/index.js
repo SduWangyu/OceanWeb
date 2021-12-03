@@ -19,6 +19,9 @@ export default createStore({
       state.account = userdata_.account;
       state.tel = userdata_.tel
     },
+    getInfoDevDetail(state, infoDevsDetail_){
+      state.infoDevsDetail = infoDevsDetail_.slice();
+    },
   },
   actions: {
   },

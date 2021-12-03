@@ -1,5 +1,5 @@
 <template>
-  <h1>hello siebar</h1>
+  <h1>hello sidebar</h1>
 </template>
 
 <script>
