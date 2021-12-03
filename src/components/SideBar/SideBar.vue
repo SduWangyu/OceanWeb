@@ -1,7 +1,5 @@
 <template>
-<<<<<<< HEAD
   <h1>hello sidebar</h1>
-=======
   <el-radio-group v-model="isCollapse" style="margin-bottom: 20px;" fill="#8AAA9F">
     <el-radio-button :label="false" >展开</el-radio-button>
     <el-radio-button :label="true" >收缩</el-radio-button>

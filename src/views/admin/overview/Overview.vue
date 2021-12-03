@@ -1,5 +1,5 @@
 <template>
-  <overview-info-block></overview-info-block>
+  <overview-info-block/>
 </template>
 
 <script>

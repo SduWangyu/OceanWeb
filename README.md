@@ -18,7 +18,7 @@
 |
 |------views
 |      |------auth
-|      |      |------login ”登陆组件“
+|      |      |------login "登陆组件"
 |      |------admin
 |             |------overview         "概览"
 |             |------devManagement    "设备管理"
