@@ -112,8 +112,8 @@ export default {
   height: 100%;
   width: 100%;
   background-color: #fff;
-  background-image: url("../../../assets/background.png");
-  background-size: 100% 100%;
+  /*background-image: url("../../../assets/background.png");*/
+  /*background-size: 100% 100%;*/
 }
 .login-container {
   width: 500px;
@@ -143,9 +143,9 @@ export default {
 }
 
 .el-checkbox {
-  --el-checkbox-checked-text-color:#70CFAE;
-  --el-checkbox-checked-input-border-color:#70CFAE;
-  --el-checkbox-checked-bg-color:#70CFAE;
-  --el-checkbox-input-border-color-hover:#70CFAE;
+  --el-checkbox-checked-text-color:#8AAA9F;
+  --el-checkbox-checked-input-border-color:#8AAA9F;
+  --el-checkbox-checked-bg-color:#8AAA9F;
+  --el-checkbox-input-border-color-hover:#8AAA9F;
 }
 </style>
