@@ -19,7 +19,7 @@
 
     </div>
   </div>
-  <Dialog :is-show="logError" msg="12346"></Dialog>
+  <Dialog/>
 </template>
 
 <script>
@@ -29,7 +29,9 @@ import md5 from 'js-md5';
 import axios from 'axios'
 import {useStore} from "vuex"
 import {useRouter} from "vue-router"
+import {provide} from "vue";
 import Dialog from "../component/Dialog";
+
 export default {
   name: 'login',
   components:{
@@ -41,7 +43,7 @@ export default {
     })
   },
   setup() {
-    const msg = ref("")
+    const logErrorMsg = ref("")
     const store = useStore()
     const router = useRouter()
     const loginForm = ref(null)
@@ -63,6 +65,8 @@ export default {
         ]
       }
     })
+    provide("isShow",logError)
+    provide("msg",logErrorMsg)
     function submitForm(){
       loginForm.value.validate((valid)=>{
         if (valid) {
@@ -88,7 +92,7 @@ export default {
                 router.push({ name: 'admin' });
                 break
               case 1000:
-                msg.value = "密码错误"
+                logErrorMsg.value = "密码错误"
                 logError.value = true
                 break
               default:
@@ -109,9 +113,7 @@ export default {
       ...toRefs(state),
       loginForm,
       submitForm,
-      resetForm,
-      logError,
-      msg
+      resetForm
     }
   }
 }

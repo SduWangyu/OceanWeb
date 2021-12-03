@@ -9,7 +9,7 @@
       width="30%"
       :before-close="handleClose"
   >
-    <span>{{msg}}</span>
+    <span>{{dialogMsg}}</span>
     <template #footer>
       <span class="dialog-footer">
         <el-button @click="dialogVisible = false">Cancel</el-button>
@@ -22,19 +22,16 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import {inject, ref} from 'vue'
 import { ElMessageBox } from 'element-plus'
 
 export default {
   name:'Dialog',
-  props:{
-    msg:'',
-    isShow: false,
-  },
 
-  setup(props) {
-    const dialogVisible = ref(props.isShow)
-    console.log(props.isShow)
+
+  setup() {
+    const dialogVisible = inject("isShow")
+    const dialogMsg = inject("msg")
     const handleClose = (done) => {
       ElMessageBox.confirm('Are you sure to close this dialog?')
           .then(() => {
@@ -47,6 +44,7 @@ export default {
     return {
       dialogVisible,
       handleClose,
+      dialogMsg
     }
   },
 }
