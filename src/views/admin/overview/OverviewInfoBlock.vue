@@ -2,6 +2,7 @@
   <el-row :gutter="12">
     <el-col :span="6" v-for="info in infoOverview" :key="info">
       <el-card>{{info.title}}<br>{{info.value}}</el-card>
+      <el-icon><files/></el-icon>
     </el-col>
   </el-row>
 </template>
