@@ -1,22 +1,26 @@
 <template>
   <div class="login-body">
     <div class="login-container">
-      <div class="head">
+      <div class="container">
+        <div class="head">
           <img src="../../../assets/mylogo.png" style="width: 70%;">
+        </div>
+        <el-form label-position="left" label-width="auto" :rules="rules" :model="ruleForm" ref="loginForm" class="login-form">
+          <el-form-item label="账号" prop="username">
+            <el-input type="text" v-model.trim="ruleForm.username" autocomplete="off"></el-input>
+          </el-form-item>
+          <el-form-item label="密码" prop="password">
+            <el-input type="password" v-model.trim="ruleForm.password" autocomplete="off"></el-input>
+          </el-form-item>
+          <el-form-item style="padding: 15px;">
+            <el-button style="width: 80%;" color="#8AAA9F" type="primary" @click="submitForm">立即登录</el-button>
+          </el-form-item>
+        </el-form>
+        <div>
+          <el-button size="medium" type="text">免费注册</el-button>
+          <el-button size="medium" type="text" style="float: right;">忘记密码?</el-button>
+        </div>
       </div>
-      <el-form label-position="left" label-width="auto" :rules="rules" :model="ruleForm" ref="loginForm" class="login-form">
-        <el-form-item label="账号" prop="username">
-          <el-input type="text" v-model.trim="ruleForm.username" autocomplete="off"></el-input>
-        </el-form-item>
-        <el-form-item label="密码" prop="password">
-          <el-input type="password" v-model.trim="ruleForm.password" autocomplete="off"></el-input>
-        </el-form-item>
-        <el-form-item style="padding: 15px;">
-          <el-button style="width: 80%;" color="#8AAA9F" type="primary" @click="submitForm">立即登录</el-button>
-          <el-checkbox v-model="checked"  @change="!checked">下次自动登录</el-checkbox>
-        </el-form-item>
-      </el-form>
-
     </div>
   </div>
   <Dialog/>
@@ -30,7 +34,7 @@ import axios from 'axios'
 import {useStore} from "vuex"
 import {useRouter} from "vue-router"
 import {provide} from "vue";
-import Dialog from "../component/Dialog";
+import Dialog from "../../../components/Dialog";
 
 export default {
   name: 'login',
@@ -119,6 +123,7 @@ export default {
 }
 </script>
 <style scoped>
+
 .login-body {
   position:absolute;
   display: flex;
@@ -131,17 +136,22 @@ export default {
   /*background-size: 100% 100%;*/
 }
 .login-container {
-  width: 500px;
-  height: 309px;
+  width: 45em;
+  height: 25em;
   background-color: #fff;
   border-radius: 4px;
+  display: flex; align-items: center;
   box-shadow: 0px 21px 41px 0px rgba(0, 0, 0, 0.2);
 }
+
 .head {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 40px 0 20px 0;
+}
+.container{
+  margin:auto;
 }
 
 .login-form {
@@ -156,11 +166,14 @@ export default {
 .login-form .el-form-item {
   margin-bottom: 12px;
 }
-
-.el-checkbox {
-  --el-checkbox-checked-text-color:#8AAA9F;
-  --el-checkbox-checked-input-border-color:#8AAA9F;
-  --el-checkbox-checked-bg-color:#8AAA9F;
-  --el-checkbox-input-border-color-hover:#8AAA9F;
+.el-button--small{
+  min-height: 40px;
+}
+.el-input--small .el-input__inner {
+  height: 40px;
+  line-height: 40px;
+}
+.el-button--text {
+  color: #8AAA9F;
 }
 </style>

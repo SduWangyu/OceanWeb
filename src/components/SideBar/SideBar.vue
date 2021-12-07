@@ -1,27 +1,22 @@
 <template>
-  <h1>hello sidebar</h1>
-  <el-radio-group v-model="isCollapse" style="margin-bottom: 20px;" fill="#8AAA9F">
-    <el-radio-button :label="false" >展开</el-radio-button>
-    <el-radio-button :label="true" >收缩</el-radio-button>
-  </el-radio-group>
-  <el-menu  style="min-height: 100vh;"
+<!--  <el-radio-group v-model="isCollapse" style="margin-bottom: 20px;" fill="#8AAA9F">-->
+<!--    <el-radio-button :label="false" >展开</el-radio-button>-->
+<!--    <el-radio-button :label="true" >收缩</el-radio-button>-->
+<!--  </el-radio-group>-->
+  <el-menu  style="min-height: calc(100vh - 60px);"
       default-active="2" background-color="#8AAA9F"
             active-text-color="#ffd04b" text-color="#fff"
       class="el-menu-vertical-demo"
       :collapse="isCollapse"
-      @open="handleOpen"
-      @close="handleClose"
+      :default-openeds="state.defaultOpen"
   >
     <el-menu-item index="1">
       <el-icon><location /></el-icon>
       <template #title>
-
         <span>概览</span>
       </template>
-
     </el-menu-item>
     <el-sub-menu index="2">
-
       <template #title>
         <el-icon><icon-menu /></el-icon>
         <span>设备管理</span>
@@ -29,16 +24,22 @@
       <el-menu-item index="2-1">联网设备</el-menu-item>
       <el-menu-item index="2-2">变量模板</el-menu-item>
     </el-sub-menu>
-    <el-menu-item index="3">
-      <el-icon><document /></el-icon>
-      <template #title>数据中心</template>
-    </el-menu-item>
+    <el-sub-menu index="3">
+      <template #title>
+        <el-icon><document /></el-icon>
+        <span>数据中心</span>
+      </template>
+      <el-menu-item index="3-1">数据统计</el-menu-item>
+      <el-menu-item index="3-2">历史记录</el-menu-item>
+      <el-menu-item index="3-3">设备上下线</el-menu-item>
+      <el-menu-item index="3-4">设备报警记录</el-menu-item>
+      <el-menu-item index="3-5">联动记录</el-menu-item>
+    </el-sub-menu>
   </el-menu>
->>>>>>> 359d9ac92d94bda5c304ee699a7ff2a74c096a87
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue'
+import {defineComponent, reactive, ref} from 'vue'
 import {
   Location,
   Document,
@@ -54,17 +55,13 @@ export default defineComponent({
     IconMenu,
   },
   setup() {
-    const isCollapse = ref(true)
-    const handleOpen = (key, keyPath) => {
-      console.log(key, keyPath)
-    }
-    const handleClose = (key, keyPath) => {
-      console.log(key, keyPath)
-    }
+    const isCollapse = ref(false)
+    const state = reactive({
+      defaultOpen: ['2','3'],
+    })
     return {
       isCollapse,
-      handleOpen,
-      handleClose,
+      state
     }
   },
 })

@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Dialog from "./auth/component/Dialog.vue";
+import Dialog from "../components/Dialog.vue";
 export default {
   components:{
     Dialog,
