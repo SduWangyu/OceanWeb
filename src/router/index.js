@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory} from 'vue-router'
-import Home from '../views/Home.vue'
+
+
 import AuthLayout from  '../layout/auth-layout'
 import AdminLayout from '../layout/admin-layout'
 const routes = [
@@ -39,9 +40,14 @@ const routes = [
     component: AdminLayout,
     children: [
       {
-        name: 'index',
-        path: 'index',
+        name: 'overview',
+        path: 'overview',
         component: () => import('../views/admin/overview/Overview.vue'),
+      },
+      {
+        name:'devdata',
+        path:'devdata',
+        component: () => import('../views/admin/dataCenter/devDataView')
       },
     ],
   }]
