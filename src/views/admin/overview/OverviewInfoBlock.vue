@@ -1,10 +1,10 @@
 <template>
-  <el-row :gutter="12" style="margin-bottom: 10px;">
-    <el-col :span="6" v-for="info in infoOverview" :key="info">
+  <el-row :gutter="12" style="margin-bottom: 30px;">
+    <el-col :span="4" v-for="info in infoOverview" :key="info">
 
-      <el-card shadow="hover" :color="info.color">
-        <p style="font-weight: 700;">{{info.title}}</p>
-        <p>{{info.value}}</p>
+      <el-card shadow="hover" :class="info.class">
+        <p style="line-height: 1; color: white;">{{info.title}}</p>
+        <p style="font-weight: 700;line-height: 1;font-size: 2.5rem; color: white;line-height: 1;">{{info.value}}</p>
 
       </el-card>
 
@@ -23,22 +23,22 @@ export default {
       {
         title:"联网设备数",
         value:0,
-        color: "#3d9209"
+        class: 'class1'
       },
       {
-        title: "产品/场景数",
+        title: "产品数",
         value: 0,
-        color: "#e42222"
+        class: 'class2'
       },
       {
         title: "用户数",
         value: 0,
-        color: "#2c82e0"
+        class: 'class3'
       },
       {
         title: "在线设备数",
         value: 0,
-        color: "#2c82e0"
+        class: 'class4'
       }
     ])
     const store = useStore()
@@ -96,5 +96,32 @@ export default {
 </script>
 
 <style scoped>
+p {
+  border: 0;
+  box-sizing: border-box;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+.el-card{
+
+  margin: 0 10px 0 10px;
+}
+.el-card .class1{
+  background-color: #165184;
+}
+.el-card .class2{
+  background-color: #8AAA9F;
+}
+.el-card .class3{
+  background-color: #8bb035;
+}
+.el-card .class4{
+  background-color: #ecb13c;
+}
+
+</style>
+<style>
 
 </style>

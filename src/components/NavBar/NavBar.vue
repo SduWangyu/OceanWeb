@@ -3,10 +3,11 @@
     <div class="logo">
       <img src="../../assets/mylogo.png" height="38" width="289.5"/>
     </div>
-    <div style="float: left;">
+    <div >
         <el-menu mode="horizontal">
           <el-menu-item index="1">首页</el-menu-item>
           <el-menu-item index="2">船舶可视化</el-menu-item>
+          <el-menu-item index="3">船舶可视化</el-menu-item>
         </el-menu>
     </div>
   </div>
@@ -60,6 +61,7 @@ export default defineComponent({
   position: relative;
   box-sizing: border-box;
   border-bottom: 1px solid #e9e9e9;
+  display: flex;
   width: 100%;
   height: 60px;
   font-size: 22px;
@@ -68,6 +70,7 @@ export default defineComponent({
   height:60px;
   display: flex;
   align-items: center;
+  margin-right: 120px;
 }
 
 </style>
