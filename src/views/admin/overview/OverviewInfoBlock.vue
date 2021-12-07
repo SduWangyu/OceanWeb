@@ -2,9 +2,9 @@
   <el-row :gutter="12">
     <el-col :span="6" v-for="info in infoOverview" :key="info">
       <el-card>{{info.title}}<br>{{info.value}}</el-card>
-
     </el-col>
   </el-row>
+
 </template>
 
 <script>
@@ -72,8 +72,10 @@ export default {
           j++;
           if (j==devNum)
           {
+            infoDevsDetailed.sort(function (a,b){
+              return b.device.createTime-a.device.createTime
+            })
             store.commit('getInfoDevDetail',infoDevsDetailed)
-            infoOverview[0].value =devNum
             infoOverview[3].value = onlineDev
           }
         })

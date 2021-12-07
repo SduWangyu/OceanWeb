@@ -93,7 +93,7 @@ export default {
                 userdata.uid = returnData.data.data.uid
                 userdata.tel = returnData.data.data.tel
                 store.commit('loginSet',userdata);
-                router.push({ name: 'admin' });
+                router.push({ name: 'overview' });
                 break
               case 1000:
                 logErrorMsg.value = "密码错误"

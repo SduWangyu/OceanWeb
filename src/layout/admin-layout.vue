@@ -8,7 +8,7 @@
         <side-bar/>
       </el-aside>
       <el-main>
-        <overview/>
+        <router-view/>
       </el-main>
     </el-container>
   </el-container>
