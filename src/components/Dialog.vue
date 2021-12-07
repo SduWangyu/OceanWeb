@@ -33,13 +33,7 @@ export default {
     const dialogVisible = inject("isShow")
     const dialogMsg = inject("msg")
     const handleClose = (done) => {
-      ElMessageBox.confirm('Are you sure to close this dialog?')
-          .then(() => {
-            done()
-          })
-          .catch(() => {
-            // catch error
-          })
+
     }
     return {
       dialogVisible,

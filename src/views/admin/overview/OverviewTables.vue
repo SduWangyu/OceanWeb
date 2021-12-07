@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <el-table
       ref="multipleTable"
       :data="infoShow"
@@ -20,6 +21,31 @@
       </el-button>
     </el-table-column>
   </el-table>
+=======
+  <el-card>
+    <el-table
+        ref="multipleTable"
+        :data="infoShow"
+        style="width: 100%"
+        @selection-change="handleSelectionChange"
+    >
+      <el-table-column type="selection" width="55" />
+      <el-table-column property="onlineStatus" label="设备状态" width="120" />
+      <el-table-column property="name" label="设备名称" width="120" />
+      <el-table-column property="deviceId" label="SN" show-overflow-tooltip />
+      <el-table-column property="productModelName" label="设备型号" show-overflow-tooltip />
+      <el-table-column property="projectName" label="所属组织" show-overflow-tooltip />
+      <el-table-column property="address" label="设备地址地址" show-overflow-tooltip />
+      <el-table-column property="status" label="启用状态" />
+      <el-table-column  label="操作" >
+        <el-button>
+          asdasdas
+        </el-button>
+      </el-table-column>
+    </el-table>
+  </el-card>
+
+>>>>>>> ed2d22290249f379a5fe8429e2ae4ea35045881e
 
 </template>
 
