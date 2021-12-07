@@ -2,7 +2,7 @@
   <el-row :gutter="12">
     <el-col :span="6" v-for="info in infoOverview" :key="info">
       <el-card>{{info.title}}<br>{{info.value}}</el-card>
-      <el-icon><files/></el-icon>
+
     </el-col>
   </el-row>
 </template>
@@ -73,8 +73,6 @@ export default {
           if (j==devNum)
           {
             store.commit('getInfoDevDetail',infoDevsDetailed)
-            console.log(infoDevsDetailed)
-            console.log(infoOverview)
             infoOverview[0].value =devNum
             infoOverview[3].value = onlineDev
           }

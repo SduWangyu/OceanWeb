@@ -10,7 +10,6 @@ export default createStore({
     token:'test',
     uid:'test',
     tel:'test',
-    infoDevBasis:[],
     infoDevsDetail:[],
   },
   mutations: {

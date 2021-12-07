@@ -6,11 +6,16 @@
 <script>
 import OverviewInfoBlock from "./OverviewInfoBlock";
 import OverviewTables from "./OverviewTables";
+import {useStore} from "vuex";
+
 export default {
   name: "overview",
   components:{
     OverviewInfoBlock,
     OverviewTables
+  },
+  setup(){
+
   }
 }
 </script>

@@ -34,7 +34,6 @@
       <template #title>数据中心</template>
     </el-menu-item>
   </el-menu>
->>>>>>> 359d9ac92d94bda5c304ee699a7ff2a74c096a87
 </template>
 
 <script>
