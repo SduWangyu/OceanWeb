@@ -1,12 +1,13 @@
 <template>
-  <el-row :gutter="12">
+  <el-row :gutter="12" style="margin-bottom: 10px;">
     <el-col :span="6" v-for="info in infoOverview" :key="info">
+
       <el-card shadow="hover" :color="info.color">
         <p style="font-weight: 700;">{{info.title}}</p>
         <p>{{info.value}}</p>
 
       </el-card>
-      <el-icon><files/></el-icon>
+
     </el-col>
   </el-row>
 </template>
@@ -81,8 +82,6 @@ export default {
           if (j==devNum)
           {
             store.commit('getInfoDevDetail',infoDevsDetailed)
-            console.log(infoDevsDetailed)
-            console.log(infoOverview)
             infoOverview[0].value =devNum
             infoOverview[3].value = onlineDev
           }
