@@ -1,7 +1,11 @@
 <template>
   <el-row :gutter="12">
     <el-col :span="6" v-for="info in infoOverview" :key="info">
-      <el-card>{{info.title}}<br>{{info.value}}</el-card>
+      <el-card shadow="hover" :color="info.color">
+        <p style="font-weight: 700;">{{info.title}}</p>
+        <p>{{info.value}}</p>
+
+      </el-card>
       <el-icon><files/></el-icon>
     </el-col>
   </el-row>
@@ -17,19 +21,23 @@ export default {
     const infoOverview = reactive([
       {
         title:"联网设备数",
-        value:0
+        value:0,
+        color: "#3d9209"
       },
       {
         title: "产品/场景数",
-        value: 0
+        value: 0,
+        color: "#e42222"
       },
       {
         title: "用户数",
-        value: 0
+        value: 0,
+        color: "#2c82e0"
       },
       {
         title: "在线设备数",
-        value: 0
+        value: 0,
+        color: "#2c82e0"
       }
     ])
     const store = useStore()
