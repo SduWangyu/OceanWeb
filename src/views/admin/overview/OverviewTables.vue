@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> 728ae1d4a116ce8cda135d67fb47cc9c69d9f656
 <template #default="scope">
   <el-card>
     <el-table
@@ -41,25 +44,25 @@ export default {
     let multipleSelection=reactive([])
     const infoShow = ref([])
     watch(() => {
-      store.state.infoDevsDetail.length
-    },(oldVar, newVar) => {
-      const infoDevsDetail = store.state.infoDevsDetail.slice()
-      const devNum = store.state.infoDevsDetail.length
-      let i = 0
-      for (i;i<devNum;i++)
-      {
-        infoShow.value.push(Object.assign({
-          'idx':i,
-          'name':infoDevsDetail[i].device.name,
-          'deviceId':infoDevsDetail[i].device.deviceId,
-          'projectName':infoDevsDetail[i].device.projectName,
-          'productModelName':infoDevsDetail[i].device.productModelName,
-          'address':infoDevsDetail[i].device.address,
-          'onlineStatus':infoDevsDetail[i].device.onlineStatus,
-          'status':infoDevsDetail[i].device.status
-        }))
-      }
-    },
+          store.state.infoDevsDetail.length
+        },(oldVar, newVar) => {
+          const infoDevsDetail = store.state.infoDevsDetail.slice()
+          const devNum = store.state.infoDevsDetail.length
+          let i = 0
+          for (i;i<devNum;i++)
+          {
+            infoShow.value.push(Object.assign({
+              'idx':i,
+              'name':infoDevsDetail[i].device.name,
+              'deviceId':infoDevsDetail[i].device.deviceId,
+              'projectName':infoDevsDetail[i].device.projectName,
+              'productModelName':infoDevsDetail[i].device.productModelName,
+              'address':infoDevsDetail[i].device.address,
+              'onlineStatus':infoDevsDetail[i].device.onlineStatus,
+              'status':infoDevsDetail[i].device.status
+            }))
+          }
+        },
         {
           deep:true
         }

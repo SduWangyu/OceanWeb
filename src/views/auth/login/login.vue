@@ -132,7 +132,7 @@ export default {
   height: 100%;
   width: 100%;
   background-color: #fff;
-  /*background-image: url("../../../assets/background.png");*/
+  /*background-image: url("../../../assets/virtual background2.jpeg");*/
   /*background-size: 100% 100%;*/
 }
 .login-container {
