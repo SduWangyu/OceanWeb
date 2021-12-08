@@ -17,7 +17,6 @@
     </div>
   </div>
 
-
 </template>
 
 <script>
@@ -47,13 +46,13 @@ export default defineComponent({
   width: 100%;
   height: 60px;
   font-size: 22px;
+  background-image: linear-gradient(to right top, #165184, #09648c, #227690, #428692, #619695, #659f96, #6da794, #79af91, #74b181, #75b26c, #7eb253, #8bb035);
+
 }
 .logo{
   height:60px;
   display: flex;
-
   align-items: center;
-  /*margin-right: 120px;*/
 }
 
 </style>
