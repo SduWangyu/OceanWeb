@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+
+=======
+>>>>>>> 728ae1d4a116ce8cda135d67fb47cc9c69d9f656
 <template #default="scope">
   <el-card>
     <el-table

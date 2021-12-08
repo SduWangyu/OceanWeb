@@ -49,6 +49,12 @@ const routes = [
         path:'devdata',
         component: () => import('../views/admin/dataCenter/devDataView')
       },
+      {
+        name:'devhistorydata',
+        path: 'devhistorydata',
+        component: () => import('../views/admin/dataCenter/historyDataView')
+      }
+
     ],
   }]
 
