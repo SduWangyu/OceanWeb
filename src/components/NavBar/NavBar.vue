@@ -3,37 +3,19 @@
     <div class="logo">
       <img src="../../assets/mylogo.png" height="38" width="289.5"/>
     </div>
-    <div >
-        <el-menu mode="horizontal">
+    <div style="float:left;position:absolute;left: 400px;">
+        <el-menu mode="horizontal" ellipsis=false >
           <el-menu-item index="1">首页</el-menu-item>
           <el-menu-item index="2">船舶可视化</el-menu-item>
           <el-menu-item index="3">船舶可视化</el-menu-item>
         </el-menu>
     </div>
+    <div style="float:right;position:absolute;right:0px;">
+      <el-menu mode="horizontal">
+        <el-menu-item index="1">用户</el-menu-item>
+      </el-menu>
+    </div>
   </div>
-<!--  <el-menu-->
-<!--      :default-active="activeIndex2"-->
-<!--      class="el-menu-demo"-->
-<!--      mode="horizontal"-->
-<!--      @select="handleSelect"-->
-<!--  >-->
-
-<!--    <el-menu-item index="1">首页</el-menu-item>-->
-<!--    <el-sub-menu index="2">-->
-<!--      <template #title>Workspace</template>-->
-<!--      <el-menu-item index="2-1">item one</el-menu-item>-->
-<!--      <el-menu-item index="2-2">item two</el-menu-item>-->
-<!--      <el-menu-item index="2-3">item three</el-menu-item>-->
-<!--      <el-sub-menu index="2-4">-->
-<!--        <template #title>item four</template>-->
-<!--        <el-menu-item index="2-4-1">item one</el-menu-item>-->
-<!--        <el-menu-item index="2-4-2">item two</el-menu-item>-->
-<!--        <el-menu-item index="2-4-3">item three</el-menu-item>-->
-<!--      </el-sub-menu>-->
-<!--    </el-sub-menu>-->
-<!--    <el-menu-item index="3">Info</el-menu-item>-->
-<!--    <el-menu-item index="4">Orders</el-menu-item>-->
-<!--  </el-menu>-->
 
 
 </template>
@@ -69,8 +51,9 @@ export default defineComponent({
 .logo{
   height:60px;
   display: flex;
+
   align-items: center;
-  margin-right: 120px;
+  /*margin-right: 120px;*/
 }
 
 </style>
