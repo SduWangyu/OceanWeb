@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-<template #default="scope">
-=======
-<template>
 
->>>>>>> f418415387bb9f1f8bbefb746097502971d956dd
+<template #default="scope">
   <el-card>
     <el-table
         ref="multipleTable"
@@ -20,28 +16,15 @@
       <el-table-column property="projectName" label="所属组织" show-overflow-tooltip />
       <el-table-column property="address" label="设备地址地址" show-overflow-tooltip />
       <el-table-column property="status" label="启用状态" />
-<<<<<<< HEAD
       <el-table-column label="操作">
         <template #default="scope">
           <el-button size="mini" @click="viewDeviceData(scope.$index)">
             数据查看
           </el-button>
         </template>
-=======
-      <el-table-column  label="操作" >
-        <el-button>
-          12311231
-        </el-button>
->>>>>>> f418415387bb9f1f8bbefb746097502971d956dd
       </el-table-column>
     </el-table>
   </el-card>
-
-<<<<<<< HEAD
-=======
-
-
->>>>>>> f418415387bb9f1f8bbefb746097502971d956dd
 </template>
 
 <script>

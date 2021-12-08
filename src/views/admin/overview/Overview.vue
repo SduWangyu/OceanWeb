@@ -8,10 +8,6 @@
 <script>
 import OverviewInfoBlock from "./OverviewInfoBlock";
 import OverviewTables from "./OverviewTables";
-<<<<<<< HEAD
-=======
-
->>>>>>> f418415387bb9f1f8bbefb746097502971d956dd
 
 export default {
   name: "overview",

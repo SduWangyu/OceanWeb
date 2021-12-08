@@ -3432,6 +3432,14 @@
     "jsbn" "~0.1.0"
     "safer-buffer" "^2.1.0"
 
+"echarts@^5.2.2":
+  "integrity" "sha512-yxuBfeIH5c+0FsoRP60w4De6omXhA06c7eUYBsC1ykB6Ys2yK5fSteIYWvkJ4xJVLQgCvAdO8C4mN6MLeJpBaw=="
+  "resolved" "https://registry.npmjs.org/echarts/-/echarts-5.2.2.tgz"
+  "version" "5.2.2"
+  dependencies:
+    "tslib" "2.3.0"
+    "zrender" "5.2.1"
+
 "ee-first@1.1.1":
   "integrity" "sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0="
   "resolved" "https://registry.nlark.com/ee-first/download/ee-first-1.1.1.tgz"
@@ -7804,6 +7812,11 @@
   "resolved" "https://registry.npmmirror.com/ts-pnp/download/ts-pnp-1.2.0.tgz"
   "version" "1.2.0"
 
+"tslib@2.3.0":
+  "integrity" "sha512-N82ooyxVNm6h1riLCoyS9e3fuJ3AMG2zIZs2Gd1ATcSFjSA23Q0fzjjZeh0jbJvWVDZ0cJT8yaNNaaXHzueNjg=="
+  "resolved" "https://registry.npmjs.org/tslib/-/tslib-2.3.0.tgz"
+  "version" "2.3.0"
+
 "tty-browserify@0.0.0":
   "integrity" "sha1-oVe6QC2iTpv5V/mqadUk7tQpAaY="
   "resolved" "https://registry.nlark.com/tty-browserify/download/tty-browserify-0.0.0.tgz"
@@ -8491,3 +8504,10 @@
     "string-width" "^4.2.0"
     "y18n" "^5.0.5"
     "yargs-parser" "^20.2.2"
+
+"zrender@5.2.1":
+  "integrity" "sha512-M3bPGZuyLTNBC6LiNKXJwSCtglMp8XUEqEBG+2MdICDI3d1s500Y4P0CzldQGsqpRVB7fkvf3BKQQRxsEaTlsw=="
+  "resolved" "https://registry.npmjs.org/zrender/-/zrender-5.2.1.tgz"
+  "version" "5.2.1"
+  dependencies:
+    "tslib" "2.3.0"
