@@ -1,12 +1,4 @@
 <template>
-<<<<<<< HEAD
-  <el-row :gutter="12" style="margin-bottom: 10px;">
-    <el-col :span="6" v-for="info in infoOverview" :key="info">
-      <el-card shadow="hover" :color="info.color">
-        <p style="font-weight: 700;">{{info.title}}</p>
-        <p>{{info.value}}</p>
-      </el-card>
-=======
 
   <el-row :gutter="12" style="margin-bottom: 30px;">
     <el-col :span="4" v-for="info in infoOverview" :key="info">
@@ -17,9 +9,6 @@
         <p style="font-weight: 700;line-height: 1;font-size: 2.5rem; color: white;line-height: 1;">{{info.value}}</p>
 
       </el-card>
-
-
->>>>>>> 728ae1d4a116ce8cda135d67fb47cc9c69d9f656
     </el-col>
   </el-row>
 

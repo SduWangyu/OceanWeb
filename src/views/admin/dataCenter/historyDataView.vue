@@ -8,7 +8,10 @@
     >
     </el-date-picker>
   </div>
-  <div class="main" id="main"></div>
+  <el-card>
+    <div class="main" id="main"></div>
+  </el-card>
+
 </template>
 
 <script>
