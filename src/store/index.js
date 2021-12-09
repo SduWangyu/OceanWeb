@@ -11,6 +11,7 @@ export default createStore({
     uid:'test',
     tel:'test',
     infoDevsDetail:[],
+    infoVars:[]
   },
   mutations: {
     loginSet(state, userdata_) {
@@ -22,6 +23,9 @@ export default createStore({
     getInfoDevDetail(state, infoDevsDetail_){
       state.infoDevsDetail = infoDevsDetail_.slice();
     },
+    getInfoVars(state, infoVars_){
+      state.infoVars = infoVars_.slice()
+    }
   },
   actions: {
   },

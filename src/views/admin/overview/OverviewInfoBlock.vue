@@ -1,25 +1,10 @@
 <template>
-<<<<<<< HEAD
-  <el-row :gutter="12" style="margin-bottom: 10px;">
-    <el-col :span="6" v-for="info in infoOverview" :key="info">
-      <el-card shadow="hover" :color="info.color">
-        <p style="font-weight: 700;">{{info.title}}</p>
-        <p>{{info.value}}</p>
-      </el-card>
-=======
-
   <el-row :gutter="12" style="margin-bottom: 30px;">
     <el-col :span="4" v-for="info in infoOverview" :key="info">
-
-
       <el-card shadow="hover" :class="info.class">
         <p style="line-height: 1; color: white;">{{info.title}}</p>
         <p style="font-weight: 700;line-height: 1;font-size: 2.5rem; color: white;line-height: 1;">{{info.value}}</p>
-
       </el-card>
-
-
->>>>>>> 728ae1d4a116ce8cda135d67fb47cc9c69d9f656
     </el-col>
   </el-row>
 
@@ -99,6 +84,22 @@ export default {
             })
             store.commit('getInfoDevDetail',infoDevsDetailed)
             infoOverview[3].value = onlineDev
+            let infoDevIds = []
+            infoDevsDetailed.forEach((item)=> {
+              let obj = item
+              infoDevIds.push(obj.device.deviceId)
+            })
+            axios({
+              url: 'https://openapi.mp.usr.cn/usrCloud/datadic/getDataPointInfoByDevice',
+              method: 'post',
+              data: JSON.stringify({"deviceIds": infoDevIds, 'token':store.state.token}),
+              headers:
+                  {
+                    'Content-Type': 'application/json'
+                  }
+            }).then((responseData2)=>{
+              store.commit('getInfoVars', responseData2.data.data)
+            })
           }
         })
       }

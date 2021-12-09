@@ -30,7 +30,7 @@
         <span>数据中心</span>
       </template>
       <el-menu-item index="3-1">数据统计</el-menu-item>
-      <el-menu-item index="3-2">历史记录</el-menu-item>
+      <el-menu-item index="3-2" @click="clickTransRoute">历史记录</el-menu-item>
       <el-menu-item index="3-3">设备上下线</el-menu-item>
       <el-menu-item index="3-4">设备报警记录</el-menu-item>
       <el-menu-item index="3-5">联动记录</el-menu-item>
@@ -64,6 +64,11 @@ export default defineComponent({
       state
     }
   },
+  methods:{
+    clickTransRoute(){
+      this.$router.push({name:'devhistorydata'})
+    }
+  }
 })
 </script>
 
