@@ -1,13 +1,13 @@
 <template>
   <el-container>
-    <el-header>
+    <el-header >
       <NavBar></NavBar>
     </el-header>
     <el-container>
       <el-aside  class="aside">
         <side-bar/>
       </el-aside>
-      <el-main>
+      <el-main style="background-color: #e4e7ed">
         <router-view/>
       </el-main>
     </el-container>
@@ -38,5 +38,8 @@ export default {
   overflow-y: auto;
   -ms-overflow-style: none;
   overflow: -moz-scrollbars-none;
+}
+.el-header{
+  background-color: #165184;
 }
 </style>

@@ -1,16 +1,24 @@
 <template #default="scope">
-    <el-card class="box-card">
-      <template #header>
-        <div>
-          <span>设备信息</span>
+
+  <el-row>
+    <el-col :span="12">
+      <el-card class="box-card" body-style="height:280px;">
+        <template #header>
+          <div>
+            <span>设备信息</span>
+          </div>
+        </template>
+        <div class="content-column text item" v-for="(val, key) in devInfoShow" :key="key">
+          <span class="content-title">{{title[key]}}：</span>
+          <span class="content-words">{{val}}</span>
         </div>
-      </template>
-      <div class="content-column" v-for="(val, key) in devInfoShow" :key="key">
-        <span class="content-title">{{key}}：</span>
-        <span class="content-words">{{val}}</span>
-      </div>
-    </el-card>
-    <el-card>
+      </el-card>
+    </el-col>
+    <el-col :span="12">
+      <BaiduMap></BaiduMap>
+    </el-col>
+  </el-row>
+  <el-card>
       <el-table
           ref="multipleTable"
           :data="varInfoShow"
@@ -39,9 +47,11 @@
 import {useRoute, useRouter} from "vue-router";
 import {useStore} from "vuex";
 import axios from "axios";
-import {reactive} from "vue";
+import {reactive,provide} from "vue";
+import BaiduMap from "../../../components/Map/BaiduMap";
 export default {
   name: "devDataView",
+  components: {BaiduMap},
   setup(){
     const route = useRoute()
     const router = useRouter()
@@ -70,6 +80,18 @@ export default {
       'devTag':infoDevsDetail.deviceTags
     }
 
+    const title = {
+      'name':'设备名称',
+      'deviceId':"设备ID",
+      'projectName' : '所属组织',
+      'productModelName': '设备型号',
+      'version':'固件版本',
+      'address':'设备地址',
+      'status':"启用状态",
+      'devTag':"标签"
+    }
+
+    provide("address",devInfoShow.address)
     const numSlaves = infoDevsDetail.slaveTotal
     console.log("numSlaves:",numSlaves)
     let numSlaveVar = 0
@@ -133,12 +155,29 @@ export default {
     return{
       devInfoShow,
       varInfoShow,
-      viewHistoryData
+      viewHistoryData,
+      title
     }
   }
 }
 </script>
 
 <style scoped>
+
+.box-card{
+  margin-bottom: 30px;
+}
+.text{
+  font-size: 14px;
+}
+.item{
+  margin-bottom: 10px;
+  color: #606266;
+}
+.content-title{
+  display:-moz-inline-box;
+  display:inline-block;
+  width:100px;
+}
 
 </style>
