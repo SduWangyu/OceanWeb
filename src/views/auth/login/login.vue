@@ -16,10 +16,10 @@
             <el-button style="width: 80%;" color="#8AAA9F" type="primary" @click="submitForm">立即登录</el-button>
           </el-form-item>
         </el-form>
-        <div>
-          <el-button size="medium" type="text">免费注册</el-button>
-          <el-button size="medium" type="text" style="float: right;">忘记密码?</el-button>
-        </div>
+<!--        <div>-->
+<!--          <el-button size="medium" type="text">免费注册</el-button>-->
+<!--          <el-button size="medium" type="text" style="float: right;">忘记密码?</el-button>-->
+<!--        </div>-->
       </div>
     </div>
   </div>
@@ -132,19 +132,19 @@ export default {
   height: 100%;
   width: 100%;
   background-color: #fff;
-  background-image: linear-gradient(to right top, #165184, #09648c, #227690, #428692, #619695, #659f96, #6da794, #79af91, #74b181, #75b26c, #7eb253, #8bb035);
+  /*background-image: linear-gradient(to right top, #165184, #09648c, #227690, #428692, #619695, #659f96, #6da794, #79af91, #74b181, #75b26c, #7eb253, #8bb035);*/
   /*background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);*/
-  /*background-image: url("../../../assets/virtual background2.jpeg");*/
-  /*background-size: 100% 100%;*/
+  background-image: url(../../../assets/t82vgO.jpeg);
+  background-size: 100% 100%;
 }
 .login-container {
   width: 45em;
   height: 25em;
-  background-color: #f7f7f7;
-  /*background-color: #ffffff;*/
-  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.2);
+  /*background-color: #f7f7f7;*/
+  border-radius: 20px;
   display: flex; align-items: center;
-  box-shadow: 0px 21px 41px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 21px 41px 0px rgba(0, 0, 0, 0);
 }
 
 .head {
@@ -169,6 +169,13 @@ export default {
 .login-form .el-form-item {
   margin-bottom: 12px;
 }
+.el-form-item__label {
+  color: white;
+  font-size: 15px;
+}
+.el-form-item.is-required:not(.is-no-asterisk)>.el-form-item__label-wrap>.el-form-item__label:before, .el-form-item.is-required:not(.is-no-asterisk)>.el-form-item__label:before {
+  content: "";
+}
 .el-button--small{
   min-height: 40px;
 }
@@ -177,6 +184,6 @@ export default {
   line-height: 40px;
 }
 .el-button--text {
-  color: #8AAA9F;
+  color: white;
 }
 </style>

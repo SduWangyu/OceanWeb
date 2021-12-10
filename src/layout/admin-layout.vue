@@ -20,12 +20,15 @@ import SideBar from "../components/SideBar/SideBar";
 import Overview from "../views/admin/overview/Overview";
 import NavBar from "../components/NavBar/NavBar";
 
+
 export default {
   name: "AdminLayout",
   components:{
     SideBar,
     Overview,
     NavBar
+  },
+  setup(){
   }
 }
 </script>

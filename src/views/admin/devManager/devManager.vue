@@ -1,5 +1,5 @@
 <template>
-<h1>adasdada</h1>
+<h1>联网设备</h1>
 </template>
 
 <script>

@@ -1,51 +1,44 @@
 <template>
-<!--  <el-radio-group v-model="isCollapse" style="margin-bottom: 20px;" fill="#8AAA9F">-->
-<!--    <el-radio-button :label="false" >展开</el-radio-button>-->
-<!--    <el-radio-button :label="true" >收缩</el-radio-button>-->
-<!--  </el-radio-group>-->
+
   <el-menu  style="min-height: calc(100vh - 60px);"
-      default-active="2" background-color="#8AAA9F"
+            :default-active="route.name" background-color="#8AAA9F"
             active-text-color="#ffd04b" text-color="#fff"
-      class="el-menu-vertical-demo"
-      :collapse="isCollapse"
-      :default-openeds="state.defaultOpen"
+            router
+            class="el-menu-vertical-demo"
+            :collapse="isCollapse"
+            :default-openeds="state.defaultOpen"
   >
-    <el-menu-item index="1">
-      <el-icon><location /></el-icon>
-      <template #title>
-        <span>概览</span>
+    <template v-for="item in menuList" v-cloak>
+      <template v-if="item.sub.length!==0">
+        <el-sub-menu :index="item.id" :key="item.id">
+          <template #title>
+            <span v-text="item.name"></span>
+          </template>
+          <el-menu-item-group v-for="sub in item.sub" :key="sub.componentName">
+            <el-menu-item :index="sub.componentName" v-text="sub.name"></el-menu-item>
+          </el-menu-item-group>
+        </el-sub-menu>
       </template>
-    </el-menu-item>
-    <el-sub-menu index="2">
-      <template #title>
-        <el-icon><icon-menu /></el-icon>
-        <span>设备管理</span>
+      <template v-else>
+        <el-menu-item :index="item.id" :key="item.id" v-text="item.name">
+
+        </el-menu-item>
       </template>
-      <el-menu-item index="2-1">联网设备</el-menu-item>
-      <el-menu-item index="2-2">变量模板</el-menu-item>
-    </el-sub-menu>
-    <el-sub-menu index="3">
-      <template #title>
-        <el-icon><document /></el-icon>
-        <span>数据中心</span>
-      </template>
-      <el-menu-item index="3-1">数据统计</el-menu-item>
-      <el-menu-item index="3-2" @click="clickTransRoute">历史记录</el-menu-item>
-      <el-menu-item index="3-3">设备上下线</el-menu-item>
-      <el-menu-item index="3-4">设备报警记录</el-menu-item>
-      <el-menu-item index="3-5">联动记录</el-menu-item>
-    </el-sub-menu>
+    </template>
+
   </el-menu>
 </template>
 
 <script>
-import {defineComponent, reactive, ref} from 'vue'
+import {defineComponent, inject, reactive, ref, watch} from 'vue'
 import {
   Location,
   Document,
   Menu as IconMenu,
   Setting,
 } from '@element-plus/icons'
+import menuList from './menu-config'
+import {useRoute} from "vue-router";
 
 export default defineComponent({
   components: {
@@ -56,19 +49,24 @@ export default defineComponent({
   },
   setup() {
     const isCollapse = ref(false)
+    const route =useRoute()
     const state = reactive({
-      defaultOpen: ['2','3'],
+      defaultOpen: ['devManager','dataCenter'],
     })
     return {
       isCollapse,
-      state
+      state,
+      route,
+      menuList:menuList
     }
   },
   methods:{
     clickTransRoute(){
       this.$router.push({name:'devhistorydata'})
-    }
-  }
+    },
+  },
+
+
 })
 </script>
 

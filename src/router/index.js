@@ -45,15 +45,25 @@ const routes = [
         component: () => import('../views/admin/overview/Overview.vue'),
       },
       {
-        name:'devdata',
-        path:'devdata',
-        component: () => import('../views/admin/dataCenter/devDataView')
+          name:'dataManager',
+          path:'dataManager',
+          component:() => import('../views/admin/dataCenter/dataManager')
       },
       {
-        name:'devhistorydata',
-        path: 'devhistorydata',
+        name:'devDataView',
+        path: 'devDataView',
+        component:() => import('../views/admin/dataCenter/devDataView')
+      },
+      {
+        name:'devManager',
+        path: 'devManager',
+        component:() => import('../views/admin/devManager/devManager')
+      },
+      {
+        name:'historyDataView',
+        path: 'historyDataView',
         component: () => import('../views/admin/dataCenter/historyDataView')
-      }
+      },
 
     ],
   }]

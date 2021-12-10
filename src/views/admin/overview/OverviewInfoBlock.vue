@@ -1,8 +1,5 @@
 <template>
-<<<<<<< HEAD
-=======
 
->>>>>>> 6e91d56f29e8c90f793174caafb005d024cacfc2
   <el-row :gutter="12" style="margin-bottom: 30px;">
     <el-col :span="4" v-for="info in infoOverview" :key="info">
       <el-card shadow="hover" :class="info.class">

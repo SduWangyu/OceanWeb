@@ -2,7 +2,7 @@
   <el-card body-style="height:280px;">
     <template #header>
       <div>
-        <span>设备信息</span>
+        <span>位置信息</span>
       </div>
     </template>
       <el-card id="map" title="Baidu Maps"></el-card>
@@ -22,10 +22,8 @@ export default {
       devAddress,
     }
   },
-
   mounted(){
     const map = new BMap.Map('map',{mapType:BMAP_HYBRID_MAP})
-    map.centerAndZoom(new BMap.Point(120.69477, 36.3673842), 12);     // 初始化地图,设置中心点坐标和地图级别【中心点的值设置为苏州。地图级别值设置越大，地图就放大】
     map.enableScrollWheelZoom();                               //启用滚轮放大缩小
     // 创建地址解析器实例
     const point = new BMap.Point(120.69477, 36.3673842)
@@ -53,8 +51,6 @@ export default {
   width:100%;
   height:100%;
 }
-
-
 
 </style>
 

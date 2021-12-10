@@ -64,7 +64,7 @@ export default {
         }
     );
     function viewDeviceData(idx){
-      router.push({name:'devdata',query:{devIdx:idx}})
+      router.push({name:'devDataView',query:{devIdx:idx}})
     }
     function handleSelectionChange(val){
       multipleSelection = val

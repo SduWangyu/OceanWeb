@@ -1,6 +1,6 @@
 <template #default="scope">
 
-  <el-row>
+  <el-row :gutter="20">
     <el-col :span="12">
       <el-card class="box-card" body-style="height:280px;">
         <template #header>
@@ -150,7 +150,7 @@ export default {
     })
 
     function viewHistoryData(idx){
-      router.push({name:'devhistorydata',query:{idxDev:devIdx,idxSlaves:varInfoShow[idx].idxSlaves,idxVar:idx}})
+      router.push({name:'historyDataView',query:{idxDev:devIdx,idxSlaves:varInfoShow[idx].idxSlaves,idxVar:idx}})
     }
     return{
       devInfoShow,
