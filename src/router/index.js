@@ -65,6 +65,13 @@ const routes = [
         component: () => import('../views/admin/dataCenter/historyDataView')
       },
 
+      {
+        name:'devedit',
+        path: 'devedit',
+        component: () => import('../views/admin/devManager/devEditor')
+      }
+
+
     ],
   }]
 
