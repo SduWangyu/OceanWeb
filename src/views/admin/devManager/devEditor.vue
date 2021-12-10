@@ -69,12 +69,15 @@ export default {
               'Content-Type': 'application/json'
             }
       }).then((res)=>{
-        console.log(res.data)
         const status = res.data.status
         switch (status){
           case 0:
             alert("修改成功");
             router.push({name:'overview'})
+            break;
+          default:
+            alert("修改失败")
+            break
         }
       })
     }

@@ -1,6 +1,9 @@
 <template>
   <div>
-    <el-select v-model="devOpNow" placeholder="请选择联网设备" @change="getSlaveFromDevOp(devOpNow)">
+    <el-select v-model="devOpNow"
+               placeholder="请选择联网设备"
+               @change="getSlaveFromDevOp(devOpNow)"
+    >
       <el-option
           v-for="item in devOptions"
           :key="item.value"
@@ -16,7 +19,7 @@
           :value="item.value"
       />
     </el-select>
-    <el-select v-model="varOpNow" multiple placeholder="请选择变量">
+    <el-select v-model="varOpNow" multiple placeholder="请选择变量" collapse-tags>
       <el-option
           v-for="item in varOptions"
           :key="item.value"
@@ -35,7 +38,9 @@
     <el-button @click="getHistoryDataSet()">查询</el-button>
   </div>
   <div><el-empty v-if="isDataEmpty" description="暂无数据"></el-empty></div>
-  <div class="main" id="main"></div>
+  <el-card>
+    <div class="main" id="main"></div>
+  </el-card>
 </template>
 
 <script>
@@ -72,6 +77,10 @@ export default {
     const varOpNow = ref([])
     const searchTime = ref([])
     const isDataEmpty = ref(true)
+    const infoSlaveLst = []
+    const infoVarLst = []
+    const devNum = infoDevsDetail.length
+
 
     searchTime.value.push(new Date())
     searchTime.value.unshift(new Date(new Date().getTime()- 7200 * 1000)) //默认查询两个小时
@@ -83,19 +92,26 @@ export default {
         label:obj.device.name
       })
     })
+    getSlaveLst()
+    getVarLst()
+
 
     if (Object.keys(route.query).length){
-      getSlaveFromDevOp(route.query.idxDev)
-      getVarsFromSlvOp(route.query.idxDev,route.query.idxSlaves)
-      devOpNow.value = route.query.idxDev
-      slaveOpNow.value = route.query.idxSlaves
-      varOpNow.value.push(route.query.idxVar)
+      devOpNow.value = Number(route.query.idxDev)
+      getSlaveFromDevOp(devOpNow.value)
+      slaveOpNow.value = Number(route.query.idxSlaves)
+      getVarsFromSlvOp(devOpNow.value,slaveOpNow.value)
+      varOpNow.value.push(Number(route.query.idxVar))
       getHistoryDataSet()
     }
 
     let myChart = ''
     onMounted(()=>{
       myChart = markRaw(echarts.init(document.getElementById("main"))) ;
+
+      window.addEventListener("resize",function(){
+        myChart.resize();
+      });
     })
 
 
@@ -123,9 +139,6 @@ export default {
       getHistoryPostData.pageSize = Math.ceil((searchTime.value[1].getTime()-searchTime.value[0].getTime())/360)
       getHistoryDataAndShow(getHistoryPostData)
     }
-
-
-
     function getHistoryDataAndShow(postData){
       isDataEmpty.value = false
       historyDataPostRes = []
@@ -165,29 +178,53 @@ export default {
       })
 
     }
+    function getSlaveLst() {
+      let i = 0
+      for (i;i<devNum;i++){
+        infoSlaveLst.push([])
+        if (infoDevsDetail[i].deviceSlaves){
+          infoDevsDetail[i].deviceSlaves.forEach((item,index)=>{
+            let obj = item
+            infoSlaveLst[i].push({
+              label:obj.slaveName,
+              slaveIndex:obj.slaveIndex,
+              value:index
+            })
+          })
+        }
+      }
+    }
+    function getVarLst(){
+      let i = 0
+      let j = 0
+      let devSlavesNum = 0
+      for (i;i<devNum;i++){
+        infoVarLst.push([])
+        devSlavesNum = infoSlaveLst[i].length
+        for (j=0;j<devSlavesNum;j++){
+          infoVarLst[i].push([])
+          infoVars[i].slaves[j].iotDataDescription.forEach((item,index)=>{
+            let obj = item
+            infoVarLst[i][j].push({
+              label:obj.name,
+              slaveIndex:j,
+              value:index
+            })
+          })
+
+        }
+      }
+    }
 
     function getSlaveFromDevOp(idx){
-      console.log(idx)
-      slaveOptions.value = []
-      infoDevsDetail[idx].deviceSlaves.forEach((item,index)=>{
-        let obj = item
-        slaveOptions.value.push({
-          label:obj.slaveName,
-          slaveIndex:obj.slaveIndex,
-          value:index
-        })
-      })
+      slaveOptions.value = infoSlaveLst[idx]
+      slaveOpNow.value = ""
+      varOpNow.value = []
+      varOptions.value = []
     }
     function getVarsFromSlvOp(devIdx,slvIdx){
-      varOptions.value = []
-      infoVars[devIdx].slaves[slvIdx].iotDataDescription.forEach((item,index)=>{
-        let obj = item
-        varOptions.value.push({
-          label:obj.name,
-          slaveIndex:slvIdx,
-          value:index
-        })
-      })
+      varOpNow.value = []
+      varOptions.value = infoVarLst[devIdx][slvIdx]
     }
 
     function setMychart(stOptns){
