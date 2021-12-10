@@ -22,6 +22,13 @@
           </el-button>
         </template>
       </el-table-column>
+      <el-table-column label="">
+        <template #default="scope">
+          <el-button size="mini" @click="editDevice(scope.$index)">
+            设备编辑
+          </el-button>
+        </template>
+      </el-table-column>
     </el-table>
   </el-card>
 </template>
@@ -66,6 +73,9 @@ export default {
     function viewDeviceData(idx){
       router.push({name:'devdata',query:{devIdx:idx}})
     }
+    function editDevice(idx){
+      router.push({name:'devedit',query:{devIdx:idx}})
+    }
     function handleSelectionChange(val){
       multipleSelection = val
     }
@@ -73,7 +83,8 @@ export default {
       infoShow,
       multipleSelection,
       handleSelectionChange,
-      viewDeviceData
+      viewDeviceData,
+      editDevice
     }
   },
 }

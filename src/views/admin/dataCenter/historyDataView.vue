@@ -34,15 +34,8 @@
     </el-date-picker>
     <el-button @click="getHistoryDataSet()">查询</el-button>
   </div>
-<<<<<<< HEAD
   <div><el-empty v-if="isDataEmpty" description="暂无数据"></el-empty></div>
   <div class="main" id="main"></div>
-=======
-  <el-card>
-    <div class="main" id="main"></div>
-  </el-card>
-
->>>>>>> 6e91d56f29e8c90f793174caafb005d024cacfc2
 </template>
 
 <script>
