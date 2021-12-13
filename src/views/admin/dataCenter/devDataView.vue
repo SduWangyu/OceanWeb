@@ -56,6 +56,7 @@ export default {
     const route = useRoute()
     const router = useRouter()
     const store = useStore()
+
     if (sessionStorage.getItem('store')) {
       store.replaceState(Object.assign({}, store.state, JSON.parse(sessionStorage.getItem('store'))))
     }
@@ -64,11 +65,10 @@ export default {
       sessionStorage.setItem('store', JSON.stringify(store.state))
     })
 
-
     const devIdx = route.query.devIdx
     const infoDevsDetail = store.state.infoDevsDetail[devIdx]
     const infoVar = store.state.infoVars[devIdx]
-    console.log(infoVar)
+    console.log("devInfoShow",infoDevsDetail)
     const devInfoShow = {
       'name':infoDevsDetail.device.name,
       'deviceId':infoDevsDetail.device.deviceId,
@@ -90,10 +90,8 @@ export default {
       'status':"启用状态",
       'devTag':"标签"
     }
-
     provide("address",devInfoShow.address)
     const numSlaves = infoDevsDetail.slaveTotal
-    console.log("numSlaves:",numSlaves)
     let numSlaveVar = 0
     const varInfoShow = reactive([])
     let i = 0
@@ -103,7 +101,6 @@ export default {
     const devDatapointsPost = []
     for (i;i<numSlaves;i++){
       numSlaveVar = infoVar.slaves[i].iotDataDescription.length
-      console.log("numSlaveVar",numSlaveVar)
       for (j;j<numSlaveVar;j++){
         varInfoShow.push(Object.assign({
           "id":infoVar.slaves[i].iotDataDescription[j].id,

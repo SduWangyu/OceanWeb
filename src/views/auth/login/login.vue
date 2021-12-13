@@ -74,7 +74,6 @@ export default {
     function submitForm(){
       loginForm.value.validate((valid)=>{
         if (valid) {
-          console.log(state.ruleForm)
           axios({
             url: 'https://openapi.mp.usr.cn/usrCloud/user/login',
             method: 'post',
@@ -84,7 +83,6 @@ export default {
                   'Content-Type': 'application/json'
                 }
           }).then((returnData) => {
-            console.log(returnData.data)
             logStatus.value = returnData.data.status
             switch (logStatus.value){
               case 0:
@@ -104,7 +102,6 @@ export default {
             }
           });
         } else {
-          console.log('error submit!!')
           return false;
         }
       })

@@ -17,7 +17,6 @@ export default {
   name: "BaiduMap",
   setup(){
     const devAddress = inject('address')
-    console.log(devAddress)
     return {
       devAddress,
     }
@@ -30,7 +29,6 @@ export default {
     const myGeo = new BMap.Geocoder();
     // 将地址解析结果显示在地图上,并调整地图视野
     myGeo.getPoint(this.devAddress, function(point) {
-      console.log(point)
       if (point) {
         map.centerAndZoom(point, 16);
         map.addOverlay(new BMap.Marker(point));

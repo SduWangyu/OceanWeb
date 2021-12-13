@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import {reactive} from "vue";
+import {reactive, onBeforeUnmount} from "vue";
 import {useStore} from "vuex";
 import axios from "axios";
 export default {
@@ -45,7 +45,7 @@ export default {
       store.replaceState(Object.assign({}, store.state, JSON.parse(sessionStorage.getItem('store'))))
     }
     // 在页面刷新时将store保存到sessionStorage里
-    window.addEventListener('beforeunload', () => {
+    onBeforeUnmount(()=>{
       sessionStorage.setItem('store', JSON.stringify(store.state))
     })
     let devNum = 0
@@ -100,6 +100,7 @@ export default {
                   }
             }).then((responseData2)=>{
               store.commit('getInfoVars', responseData2.data.data)
+              console.log("suss")
             })
           }
         })
